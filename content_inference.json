@@ -1,0 +1,14 @@
+{
+  "network": "bsv",
+  "sellerAddress": "1LdqUbdZ6GY71KxThU6aKfuKXxgmTn82cv",
+  "assetType": "api-credits",
+  "promisedSpec": {
+    "service": "pay-per-call LLM inference",
+    "provider": "inference.bsvkey.com (Embryo Space Inc. / BSVKey)",
+    "settlement": "x402 over BSV micropayment"
+  },
+  "delivered": "yes",
+  "evidenceHash": "cb1b47161df9a0ab7e274f8e6c9bf0f1422ec9088cd078ae102aab85dc06ab6d",
+  "settlementRef": "77030c6192c6e86b808f1d7afa210b874bad86ed6a6b4ef69a8ccebc51ec83c6",
+  "timestamp": "2026-09-05T14:40:00.000Z"
+}

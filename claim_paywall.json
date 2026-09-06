@@ -1,0 +1,18 @@
+{
+  "network": "bsv",
+  "sellerAddress": "19Kjq5uDoNGzKo84Ui6R4qtH2WVJeu7Dyi",
+  "assetType": "api-credits",
+  "promisedSpec": {
+    "service": "x402 paywalled API call (non-custodial gateway)",
+    "provider": "paywall.bsvkey.com (Embryo Space Inc. / BSVKey)",
+    "settlement": "x402 over BSV micropayment"
+  },
+  "delivered": "yes",
+  "evidenceHash": "c14ae43072288d012993b2b722eef1b03dbc7c22874742d98f733145c1c57195",
+  "settlementRef": "07d0114a4d142942bc2f7ac85d35ae95e2dd71f130c71b5b2f89a2d508942938",
+  "timestamp": "2026-09-06T03:01:04.000Z",
+  "buyerAddress": "1ErDfgzGWe6kDSHWWZPUSpVRRvfQo7rDdZ",
+  "buyerPubKey": "020dfa60de3eaf9c8f415f36d911262745506248dc926f2bfe5e30d6979f31fe1c",
+  "claimId": "0x32e47e22867fd01d5bf866b494bd07164126c7a872ba5a15d953c20af7d78c5f",
+  "signature": "304402201c560347bb0bb4a479a9c020b1a438331b49dfa06db2f6e232cfb71ff671928102206b5b0686f705cbc081bab37a6139c59c898ae00a2f3e4e79a6e1c9f1e7466b72"
+}

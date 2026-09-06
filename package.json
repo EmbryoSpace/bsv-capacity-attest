@@ -1,0 +1,17 @@
+{
+  "name": "asm-bsv-fixture",
+  "version": "1.0.0",
+  "description": "BSV rail adapter + fixtures for the ASM / capacity-attest post-call attestation layer",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@bsv/sdk": "^1.10.4",
+    "capacity-attest": "^0.2.0"
+  }
+}
