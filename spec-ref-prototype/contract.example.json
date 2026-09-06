@@ -1,0 +1,15 @@
+{
+  "contract_id": "acme-weather-api-v1",
+  "principal": "Acme Corp",
+  "frozen_at": "2026-09-06T00:00:00.000Z",
+  "binding_conditions": [
+    "1. Response is valid JSON, UTF-8 encoded.",
+    "2. Every forecast field value matches the authoritative source record.",
+    "3. Temperature is reported in both Celsius and Fahrenheit.",
+    "4. The response includes the ISO-8601 timestamp of the reading.",
+    "5. No field may be null; absent data is reported as an explicit 'unavailable'.",
+    "6. The payload is under 8 KB.",
+    "7. Attribution names the data source.",
+    "8. The response is reproducible: identical inputs yield an identical body."
+  ]
+}
