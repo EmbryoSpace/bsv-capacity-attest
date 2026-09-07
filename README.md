@@ -23,9 +23,11 @@ Only two things are **BSV-specific**, and they live behind the adapter:
 
 - **Address encoding.** `buyerAddress` / `sellerAddress` are base58 P2PKH
   addresses (case-sensitive, so not lower-cased the way `0x` hex is).
-- **Signature envelope.** The buyer signs the `claimId` with a **Bitcoin Signed
-  Message (BSM / BRC-77)**, a recoverable ECDSA signature over a prefixed
-  message, the same secp256k1 primitive as EIP-191, a different envelope. The
+- **Signature envelope.** The buyer signs the `claimId` with a **compact Bitcoin
+  Signed Message (BSM)**, a recoverable ECDSA signature over a prefixed
+  message, the same secp256k1 primitive as EIP-191, a different envelope. (`@bsv/sdk`
+  marks BSM as deprecated in favor of BRC-77; the two are not equivalent, and a
+  BRC-77 migration is out of scope here.) The
   claim carries the payer's compressed pubkey (a BSV P2PKH spend reveals it
   on-chain anyway); verification checks the signature under that pubkey and that
   the pubkey hashes to `buyerAddress`.

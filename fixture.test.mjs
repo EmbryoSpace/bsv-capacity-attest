@@ -5,9 +5,10 @@
 // BSV-settled claim; it is not evidence that ASM was used for the original call.
 //
 // Verifier profile: bsv-claim adapter (this repo), canonicalize+sha256 content
-// address (rail-neutral, identical to capacity-attest) + Bitcoin Signed Message
-// (BSM / BRC-77) recovery to a base58 P2PKH address. capacity-attest itself
-// (holistis/tokenizen) verifies the Base/USDC sibling; see #18.
+// address (rail-neutral, identical to capacity-attest) + compact Bitcoin Signed
+// Message (BSM) recovery to a base58 P2PKH address (BSM is deprecated in favor of
+// BRC-77 and the two are not equivalent; a BRC-77 migration is out of scope).
+// capacity-attest itself (holistis/tokenizen) verifies the Base/USDC sibling; see #18.
 //
 // The settlement check is a live WhatsOnChain read, matching #18's live
 // on-chain verification. Set FIXTURE_OFFLINE=1 to skip only that network step.
