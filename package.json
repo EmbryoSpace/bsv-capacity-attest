@@ -11,7 +11,6 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@bsv/sdk": "^1.10.4",
-    "capacity-attest": "^0.2.0"
+    "@bsv/sdk": "^2.4.2"
   }
 }

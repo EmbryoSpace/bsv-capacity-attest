@@ -43,20 +43,21 @@ for (const fx of FIXTURES) {
       assert.equal(computeClaimId(claim), claim.claimId);
     });
 
-    await t.test('payer signature: BSM recovers to buyerPubKey and that hashes to buyerAddress', () => {
+    await t.test('payer signature: the compact BSM signature recovers the signer, and P2PKH(recovered) equals buyerAddress', () => {
       assert.deepEqual(verifyClaim(claim), { ok: true });
     });
 
-    await t.test('settlement linkage: buyer paid seller on-chain (P2PKH output to payTo)', async (st) => {
+    await t.test('settlement linkage: buyer paid seller on-chain (P2PKH output to seller, an input spends a buyer-locked prevout)', async (st) => {
       if (process.env.FIXTURE_OFFLINE) return st.skip('FIXTURE_OFFLINE set, skipping the WhatsOnChain read');
       const s = await verifySettlement({
         settlementRef: claim.settlementRef,
         buyerAddress: claim.buyerAddress,
         sellerAddress: claim.sellerAddress,
       });
-      assert.equal(s.ok, true, `settlement ${claim.settlementRef} must pay ${claim.sellerAddress} and be spent by ${claim.buyerAddress}`);
+      assert.equal(s.ok, true, `settlement ${claim.settlementRef} must pay ${claim.sellerAddress} and spend a prevout locked to ${claim.buyerAddress}`);
       assert.ok(s.sellerPaidSats > 0);
       assert.equal(s.buyerIsPayer, true);
+      assert.ok(s.buyerInputCount > 0);
     });
 
     // ---- EXPLICIT NON-CLAIMS (mirrors #18) ------------------------------------

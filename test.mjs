@@ -51,7 +51,8 @@ test('a signature from a different key is rejected', () => {
   const forged = { ...content, buyerPubKey: buyer.toPublicKey().toString(), claimId: signed.claimId, signature: signed.signature };
   const r = verifyClaim(forged);
   assert.equal(r.ok, false);
-  assert.equal(r.reason, 'signature_does_not_match_buyer');
+  // The key recovered from the attacker's signature is not the buyer's address.
+  assert.equal(r.reason, 'recovered_address_does_not_match_buyerAddress');
 });
 
 test('a pubkey that does not match buyerAddress is rejected', () => {
@@ -60,7 +61,8 @@ test('a pubkey that does not match buyerAddress is rejected', () => {
   const content = sampleContent({ buyerAddress: buyer.toAddress() });
   const signed = signClaim(buyer, content);
   const forged = { ...content, buyerPubKey: other.toPublicKey().toString(), claimId: signed.claimId, signature: signed.signature };
-  assert.equal(verifyClaim(forged).reason, 'pubkey_does_not_match_buyerAddress');
+  // Recovery yields the buyer's key, so the mismatched carried pubkey is caught.
+  assert.equal(verifyClaim(forged).reason, 'buyerPubKey_does_not_match_recovered');
 });
 
 test('a claim carrying an unsigned extra field is rejected (strict shape)', () => {
