@@ -1,0 +1,14 @@
+{
+  "sellerAddress": "0xd403f725eeB79b7358C741327a2a815B185F6f69",
+  "buyerAddress": "0xTODO_THROWAWAY_BASE_ADDRESS",
+  "assetType": "inference",
+  "unit": "call",
+  "quantity": 1,
+  "amount": "0.01",
+  "currency": "USDC",
+  "chain": "base",
+  "settlementRail": "x402",
+  "settlementRef": "0xTODO_SETTLEMENT_TX_FROM_THROWAWAY_BUYER",
+  "delivered": true,
+  "historical_asm_use": false
+}
