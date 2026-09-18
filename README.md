@@ -36,6 +36,24 @@ capacity-attest's own `verifyClaim` cannot be called directly here: its frozen
 schema hard-codes `0x`/EIP-191, so a base58 address is rejected before hashing.
 The shared piece is the hash route, not the schema.
 
+## Rails
+
+The attestation core is rail-neutral: `claimId = 0x + sha256(canonicalJSON(content))`,
+byte-identical on every rail. Only address encoding and the signature envelope
+are rail-specific, behind the adapter, and the settlement-linkage check is just
+"read the transfer on the relevant chain."
+
+| Rail | Chain model | Signature envelope | Settlement check | Source |
+|---|---|---|---|---|
+| BSV | UTXO | Bitcoin Signed Message (secp256k1) | P2PKH output + buyer-spent prevout (WhatsOnChain) | this repo |
+| Base / USDC | account / EVM | EIP-191 (secp256k1) | USDC `Transfer` log | capacity-attest (#18); live payments at inference.bsvkey.com/usdc |
+
+Both are the same endpoint's settlement, on two chains: the identical per-call
+flow at inference.bsvkey.com is payable in BSV or in USDC on Base (x402, via
+Coinbase's facilitator, self-custody embedded wallet). A Base/USDC delivery
+fixture pinned to a real USDC settlement, the USDC twin of `claim_inference.json`,
+is the next artifact.
+
 ## The three checks
 
 For a claim (see `claim_inference.json`, `claim_paywall.json`):
